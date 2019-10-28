@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+            <!--//http://test.local.com/ws.html-->
+            var wsServer = 'ws://123.56.223.242:9502';//端口只能用9502
+            ws = new WebSocket(wsServer);
+            ws.onopen = function(){
+                console.log("socket连接已打开");
+            };
+            ws.onmessage = function(e){
+                console.log("message:" + e.data);
+            };
+            ws.onclose = function(){
+                console.log("socket连接已断开");
+            };
+            ws.onerror = function(e){
+                console.log("ERROR:",e);
+                console.log("ERROR:" + e.data);
+            };
+
+            //离开页面时关闭连接
+//            $(window).bind('beforeunload',function(){
+//                    ws.close();
+//                }
+//            );
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
